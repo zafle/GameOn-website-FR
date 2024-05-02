@@ -22,6 +22,7 @@ const submitBtn = document.querySelector(".btn-submit");
 const firstNameInput = document.getElementById("first");
 const lastNameInput = document.getElementById("last");
 const emailInput = document.getElementById("email");
+const dateInput = document.getElementById("birthdate");
 const quantityInput = document.getElementById("quantity");
 const locationInputs = document.querySelectorAll("input[name='location']");
 const agreementInput = document.getElementById("checkbox1");
@@ -99,6 +100,16 @@ function validateEmail(email) {
   }
 }
 
+function validateDate(date) {
+  let dateOfBirth = new Date(date);
+  let limitDate = new Date();
+  limitDate.setFullYear(limitDate.getFullYear() - 4);
+
+  if ( !(dateOfBirth.toISOString() < limitDate.toISOString()) ) {
+    throw new Error("Vous devez indiquer une date de naissance valide");
+  }
+}
+
 /**
  * This function validates the quantity of games
  * @param {number} quantity
@@ -150,6 +161,9 @@ function validateForm() {
 
     let email = emailInput.value;
     validateEmail(email);
+
+    let date = dateInput.value;
+    validateDate(date);
 
     let quantity = parseInt(quantityInput.value);
     validateQuantity(quantity);
