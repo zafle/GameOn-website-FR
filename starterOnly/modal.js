@@ -134,7 +134,7 @@ function validateDate() {
  */
 function validateQuantity() {
   let quantity = quantityInput.value;
-  if (quantity <= 0 || quantity > 99 || quantity === "") {
+  if (quantity < 0 || quantity > 99 || quantity === "") {
     throw new Error("La quantité n'est pas valide");
   }
 }
@@ -237,6 +237,7 @@ function validateForm() {
 
   // if no errors, send the form
   if (errors === 0) {
+
     reservationForm.submit();
   }
 }
