@@ -279,3 +279,35 @@ submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   validateForm();
 });
+
+// ########### Display a message after form has been submited  ###########
+
+
+/**
+ * This function tests if the form has been submited
+ * and displays a success message
+ */
+function displaySuccessMessage() {
+
+  //  get the form parameters from the URL
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.size !== 0) {
+      const firstName = searchParams.get("first");
+      const lastName = searchParams.get("last");
+      const location = searchParams.get("location");
+
+      // construct the message
+      const successMessage = document.createElement("div");
+      successMessage.classList.add("success-message");
+      successMessage.innerHTML = `<p>Merci <strong>${firstName} ${lastName}</strong>,<br>
+                                  Ta réservation au tournoi de <strong>${location}</strong> a bien été effectuée&nbsp;!<br>
+                                  À bientôt &#128513;</p>`;
+
+      // insert the new HTML element into the HTML
+      const parentElement = document.querySelector("main");
+      parentElement.prepend(successMessage);
+  }
+}
+
+// launch message
+displaySuccessMessage();

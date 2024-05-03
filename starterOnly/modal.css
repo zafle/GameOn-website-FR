@@ -529,3 +529,20 @@ footer {
     opacity: 1;
   }
 }
+
+/* Success message */
+.success-message {
+  width: 100%;
+  margin: 40px auto;
+  background-color: rgba(255, 0, 0, 0.719);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+}
+.success-message p {
+  font-weight: 500;
+  /* font-style: italic; */
+  text-align: center;
+  color: white;
+  line-height: 1.5;
+}
