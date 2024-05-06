@@ -14,6 +14,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const closeModalBtn = document.querySelector(".close");
 const modalContent = document.querySelector(".content");
+const modalBody = document.querySelector(".modal-body");
+// const
 
 // form
 const formData = document.querySelectorAll(".formData");
@@ -68,7 +70,15 @@ function closeModal() {
   closeModalAnimation.play();
 
   closeModalAnimation.onfinish = () => {
+
     modalbg.style.display = "none";
+
+    // check if the modal is success message,
+    // and redirect to homepage to erase the url parameters
+    if (modalbg.dataset.success) {
+      delete modalbg.dataset.success;
+      window.location.replace("index.html");
+    }
   };
 }
 
@@ -289,23 +299,32 @@ submitBtn.addEventListener("click", (event) => {
  */
 function displaySuccessMessage() {
 
+
   //  get the form parameters from the URL
   const searchParams = new URLSearchParams(window.location.search);
+
   if (searchParams.size !== 0) {
-      const firstName = searchParams.get("first");
-      const lastName = searchParams.get("last");
-      const location = searchParams.get("location");
 
-      // construct the message
-      const successMessage = document.createElement("div");
-      successMessage.classList.add("success-message");
-      successMessage.innerHTML = `<p>Merci <strong>${firstName} ${lastName}</strong>,<br>
-                                  Ta réservation au tournoi de <strong>${location}</strong> a bien été effectuée&nbsp;!<br>
-                                  À bientôt &#128513;</p>`;
+    modalbg.dataset.success = "true";
 
-      // insert the new HTML element into the HTML
-      const parentElement = document.querySelector("main");
-      parentElement.prepend(successMessage);
+    // add eventlistener on close button
+    const closeButton = document.querySelector(".btn-close");
+    closeButton.addEventListener("click", closeModal);
+
+    // retrieve datas from URL parameters
+    const firstName = searchParams.get("first");
+    const lastName = searchParams.get("last");
+    const location = searchParams.get("location");
+
+    // construct the message
+    const successMessage = document.createElement("div");
+    successMessage.classList.add("success-message");
+    successMessage.innerHTML = `<p>Merci <strong>${firstName} ${lastName}</strong>,<br>
+                                Ta réservation au tournoi de <strong>${location}</strong> a bien été effectuée&nbsp;!<br>
+                                &#128513;</p>`;
+
+    // insert the new HTML element into the HTML
+    modalBody.prepend(successMessage);
   }
 }
 

@@ -325,7 +325,8 @@ input {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.btn-close {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -531,18 +532,36 @@ footer {
 }
 
 /* Success message */
+
+.bground[data-success] {
+  display: block;
+}
+.bground[data-success] .content {
+  height: 761px;
+  display: flex;
+  flex-direction: column;
+}
+.bground[data-success] .modal-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.bground[data-success] form {
+  display: none;
+}
 .success-message {
-  width: 100%;
-  margin: 40px auto;
-  background-color: rgba(255, 0, 0, 0.719);
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
   padding: 15px;
+  margin: auto;
 }
 .success-message p {
   font-weight: 500;
-  /* font-style: italic; */
   text-align: center;
-  color: white;
   line-height: 1.5;
+}
+.bground[data-success] .btn-close {
+  display: block;
+  margin-bottom: 0;
+}
+.btn-close {
+  display: none;
 }
