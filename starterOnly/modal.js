@@ -1,8 +1,13 @@
 function editNav() {
   var x = document.getElementById("myTopnav");
+  var icon = document.getElementById("menu-icon");
   if (x.className === "topnav") {
     x.className += " responsive";
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-times");
   } else {
+    icon.classList.add("fa-bars");
+    icon.classList.remove("fa-times");
     x.className = "topnav";
   }
 }
@@ -15,7 +20,6 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const closeModalBtn = document.querySelector(".close");
 const modalContent = document.querySelector(".content");
 const modalBody = document.querySelector(".modal-body");
-// const
 
 // form
 const formData = document.querySelectorAll(".formData");
