@@ -247,11 +247,8 @@ function validateForm() {
   errors = validateInput(locationInputs[0], validateLocation, errors);
   errors = validateInput(agreementInput, validateAgreement, errors);
 
-  console.log("totalerrors : " + errors);
-
   // if no errors, send the form
   if (errors === 0) {
-
     reservationForm.submit();
   }
 }
