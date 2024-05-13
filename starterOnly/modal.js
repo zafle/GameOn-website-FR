@@ -293,13 +293,11 @@ submitBtn.addEventListener("click", (event) => {
 
 // ########### Display a message after form has been submited  ###########
 
-
 /**
  * This function tests if the form has been submited
  * and displays a success message
  */
 function displaySuccessMessage() {
-
 
   //  get the form parameters from the URL
   const searchParams = new URLSearchParams(window.location.search);
