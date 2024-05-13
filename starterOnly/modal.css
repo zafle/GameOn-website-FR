@@ -90,7 +90,7 @@ footer {
 
 /* --------------main----------- */
 main {
-  margin-top: 85px;
+  margin-top: 50px;
 }
 .hero-section {
   border-radius: 10px;
@@ -386,6 +386,9 @@ input {
 }
 
 @media screen and (min-width: 1300px) {
+  main {
+    margin-top: 85px;
+  }
   .hero-headline {
     font-size: 6rem;
     letter-spacing: 5px;
