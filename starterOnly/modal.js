@@ -183,7 +183,7 @@ function validateAgreement() {
 /**
  * This function displays an error message
  * @param {HTMLElement} input
- * @param {string} error
+ * @param {Error} error
  */
 function displayErrorMessage(input, error) {
   const inputParent = input.closest(".formData");
