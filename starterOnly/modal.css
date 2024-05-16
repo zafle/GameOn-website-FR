@@ -65,6 +65,7 @@ input.button {
   margin: 5px;
   text-decoration: none;
   font-size: 1.8vw;
+  font-weight: 500;
 }
 .topnav .menu-item:hover,
 .topnav .menu-item.active {
@@ -380,6 +381,9 @@ input {
 /* Media queries */
 
 @media screen and (min-width: 1400px) {
+  .main-navbar {
+    margin-right: -60px;
+  }
   footer {
     margin-left: -60px;
   }
