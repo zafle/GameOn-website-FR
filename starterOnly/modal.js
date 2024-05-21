@@ -188,7 +188,6 @@ function validateAgreement() {
 function displayErrorMessage(input, error) {
   const inputParent = input.closest(".formData");
   inputParent.dataset.error = error.message;
-  inputParent.dataset.errorVisible = true;
 }
 
 /**
@@ -197,9 +196,8 @@ function displayErrorMessage(input, error) {
  */
 function resetErrorMessage(input) {
   const item = input.closest(".formData");
-  if (item.dataset.error && item.dataset.errorVisible) {
+  if (item.dataset.error) {
     delete item.dataset.error;
-    delete item.dataset.errorVisible;
   }
 }
 
@@ -233,9 +231,8 @@ function validateForm() {
 
   // delete all error messages
   for (const item of formData) {
-    if (item.dataset.error && item.dataset.errorVisible) {
+    if (item.dataset.error) {
       delete item.dataset.error;
-      delete item.dataset.errorVisible;
     }
   }
 
